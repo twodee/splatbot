@@ -1,0 +1,20 @@
+<project name="splatbot" default="build">
+  <property name="build.dir" value="bin"/>
+  <property name="repodir" value="${user.home}/checkouts/cs145_2016c_template/readonly"/>
+
+  <target name="build" description="Compile Java source files">
+    <mkdir dir="${build.dir}"/>
+    <javac destdir="${build.dir}" includeantruntime="false" debug="true">
+      <src path="src"/>
+    </javac>
+  </target>
+
+  <target name="jar" description="Compose JAR file" depends="build">
+    <jar destfile="${build.dir}/${ant.project.name}.jar" >
+      <fileset dir="${build.dir}" excludes="${ant.project.name}.jar"/>
+      <manifest>
+        <attribute name="Main-Class" value="splatbot.Main"/>
+      </manifest>
+    </jar>
+  </target>
+</project>
