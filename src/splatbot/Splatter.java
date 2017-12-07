@@ -373,8 +373,8 @@ public class Splatter extends JFrame {
   class Board {
     private Cell[][] board;
 
-    public static final int NROWS = 4;
-    public static final int NCOLUMNS = 4;
+    public static final int NROWS = 10;
+    public static final int NCOLUMNS = 10;
 
     public Board(int nrocks) {
       board = new Cell[NROWS][NCOLUMNS];
@@ -387,7 +387,7 @@ public class Splatter extends JFrame {
       // Randomly place rocks.
       /* nrocks = 0; */
       long seed = System.currentTimeMillis();
-      System.out.println("seed: " + seed);
+      /* System.out.println("seed: " + seed); */
       Random generator = new Random(seed);
       for (int i = 0; i < 7; ++i) {
         int r = generator.nextInt(NROWS);

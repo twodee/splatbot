@@ -1,6 +1,5 @@
 <project name="splatbot" default="build">
   <property name="build.dir" value="bin"/>
-  <property name="repodir" value="${user.home}/checkouts/cs145_2016c_template/readonly"/>
 
   <target name="build" description="Compile Java source files">
     <mkdir dir="${build.dir}"/>
@@ -10,11 +9,16 @@
   </target>
 
   <target name="jar" description="Compose JAR file" depends="build">
-    <jar destfile="${build.dir}/${ant.project.name}.jar" >
-      <fileset dir="${build.dir}" excludes="${ant.project.name}.jar"/>
-      <manifest>
-        <attribute name="Main-Class" value="splatbot.Main"/>
-      </manifest>
+    <jar destfile="${build.dir}/${ant.project.name}.jar">
+      <fileset dir="${build.dir}" excludes="${ant.project.name}.jar splatbot/RobotXJ9000.class splatbot/Main.class"/>
+      <fileset dir="." includes="images/*"/>
+    </jar>
+  </target>
+
+  <target name="secret.jar" description="Compose JAR file" depends="build">
+    <jar destfile="${build.dir}/${ant.project.name}.secret.jar">
+      <fileset dir="${build.dir}" excludes="*.jar splatbot/Main.class"/>
+      <fileset dir="." includes="images/*"/>
     </jar>
   </target>
 </project>

@@ -12,7 +12,7 @@ public class RobotRandom {
 
   public RobotRandom(SplatBotColor color) {
     long seed = System.currentTimeMillis();
-    System.out.println("robot seed: " + seed);
+    /* System.out.println("robot seed: " + seed); */
     generator = new Random(seed);
     this.color = color;
   }
