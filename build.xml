@@ -17,7 +17,7 @@
 
   <target name="secret.jar" description="Compose JAR file" depends="build">
     <jar destfile="${build.dir}/${ant.project.name}.secret.jar">
-      <fileset dir="${build.dir}" excludes="*.jar splatbot/Main.class"/>
+      <fileset dir="${build.dir}" excludes="*.jar"/>
       <fileset dir="." includes="images/*"/>
     </jar>
   </target>

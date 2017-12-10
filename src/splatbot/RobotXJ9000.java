@@ -134,6 +134,10 @@ public class RobotXJ9000 {
       return left();
     } else if ((isMine(forward) || isObstacle(forward)) && isTheirs(right)) {
       return right();
+    } else if ((isMine(forward) || isObstacle(forward)) && left == Cell.NEUTRAL) {
+      return left();
+    } else if ((isMine(forward) || isObstacle(forward)) && right == Cell.NEUTRAL) {
+      return right();
     } else if (forward != Cell.WALL &&
                forward != Cell.ROCK &&
                forward != Cell.RED_ROBOT &&
@@ -149,7 +153,7 @@ public class RobotXJ9000 {
       return right();
     } else {
       ++nlefts;
-      if (nlefts < 4) {
+      if (nlefts < 2) {
         return left();
       } else {
         if (forward != Cell.ROCK && forward != Cell.WALL) {
