@@ -38,7 +38,7 @@ public class Splatter extends JFrame {
   private Timer timer;
   private BufferedImage[] botImages;
   private BufferedImage[] splatImages;
-  private BufferedImage rockImage;;
+  private BufferedImage rockImage;
   private JLabel redLabel;
   private JLabel blueLabel;
   private JLabel turnLabel;
